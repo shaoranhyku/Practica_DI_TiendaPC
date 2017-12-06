@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica_SQLite_TiendaPC.UserPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout>
+                <Label x:Name="lblPlaca" Text="Placa base"/>
+                <Picker x:Name="pckPlaca"
+                        ItemsSource="{Binding ListaPlaca}"
+                        SelectedIndex="{Binding IndicePlaca}"/>
+                <Label x:Name="lblProcesador" Text="Procesador"/>
+                <Picker x:Name="pckProcesador"
+                        ItemsSource="{Binding ListaProcesador}"
+                        SelectedIndex="{Binding IndiceProcesador}"/>
+                <Label x:Name="lblTorre" Text="Torre"/>
+                <Picker x:Name="pckTorre"
+                        ItemsSource="{Binding ListaTorre}"
+                        SelectedIndex="{Binding IndiceTorre}"/>
+                <Label x:Name="lblMemoria" Text="Memoria"/>
+                <Picker x:Name="pckMemoria"
+                        ItemsSource="{Binding ListaMemoria}"
+                        SelectedIndex="{Binding IndiceMemoria}"/>
+                <Label x:Name="lblTarjetaGrafica" Text="Tarjeta Gráfica"/>
+                <Picker x:Name="pckTarjetaGrafica"
+                        ItemsSource="{Binding ListaTarjetaGrafica}"
+                        SelectedIndex="{Binding IndiceTarjetaGrafica}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label x:Name="lblBienvenida"
+                       Text="{Binding MensajeBienvenida}"/>
+                <Button x:Name="btnAceptar" Text="Aceptar"
+                        IsEnabled="{Binding EstadoAceptar}"/>
+                <Label x:Name="lblPedido" Text="Pedido"/>
+                <ListView x:Name="lstPedidoActual"
+                          ItemsSource="{Binding PedidoActual}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Nombre}"/>
+                                    <Label Text="{Binding Precio}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label x:Name="lblTotal" Text="Precio"/>
+                <Label x:Name="lblPrecioTotal"
+                       Text="{Binding PrecioTotal}"/>
+                <Button x:Name="btnConfirmar" Text="Confirmar"
+                        IsEnabled="{Binding EstadoConfirmar}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
