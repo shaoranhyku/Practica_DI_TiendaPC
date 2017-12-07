@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica_SQLite_TiendaPC.AdminPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout>
+                <Label x:Name="lblBienvenida"
+                       Text="{Binding MensajeBienvenida}"/>
+                <Button x:Name="btnPrecios" Text="Precios"/>
+                <Button x:Name="btnDesconectar" Text="Precios"/>
+            </StackLayout>
+            <StackLayout>
+                <Label x:Name="lblPedidos" Text="Pedidos"/>
+                <ListView x:Name="lstPedidos" ItemsSource="{Binding ListaPedidos}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
