@@ -343,7 +343,19 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         }
         #endregion
 
-        #region Metodo
+        #region Metodos
+
+        /// <summary>
+        /// Cierra la sesión del usuario actual.
+        /// </summary>
+        /// <remarks>
+        /// Cierra la sesión del usuario actual, devolviendolo a la pantalla de login.
+        /// </remarks>
+        public void Desconectar()
+        {
+            App.Current.MainPage = new MainPage();
+        }
+
         /// <summary>
         /// Comprueba que se haya seleccionado todos los productos.
         /// </summary>

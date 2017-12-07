@@ -25,6 +25,7 @@
                 <Picker x:Name="pckTarjetaGrafica"
                         ItemsSource="{Binding ListaTarjetaGrafica}"
                         SelectedIndex="{Binding IndiceTarjetaGrafica}"/>
+                <Button x:Name="btnDesconectar" Text="Desconectar"/>
             </StackLayout>
             <StackLayout>
                 <Label x:Name="lblBienvenida"

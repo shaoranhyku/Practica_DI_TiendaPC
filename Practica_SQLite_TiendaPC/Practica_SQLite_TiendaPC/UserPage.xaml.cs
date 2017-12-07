@@ -19,17 +19,31 @@ namespace Practica_SQLite_TiendaPC
 
             BindingContext = viewModel;
 
-            pckPlaca.SelectedIndexChanged += comprobarComponentes;
-            pckProcesador.SelectedIndexChanged += comprobarComponentes;
-            pckTorre.SelectedIndexChanged += comprobarComponentes;
-            pckMemoria.SelectedIndexChanged += comprobarComponentes;
-            pckTarjetaGrafica.SelectedIndexChanged += comprobarComponentes;
+            pckPlaca.SelectedIndexChanged += ComprobarComponentes;
+            pckProcesador.SelectedIndexChanged += ComprobarComponentes;
+            pckTorre.SelectedIndexChanged += ComprobarComponentes;
+            pckMemoria.SelectedIndexChanged += ComprobarComponentes;
+            pckTarjetaGrafica.SelectedIndexChanged += ComprobarComponentes;
 
-            btnAceptar.Clicked += agregarComponentes;
-            btnConfirmar.Clicked += realizarPedidoAsync;
+            btnAceptar.Clicked += AgregarComponentes;
+            btnConfirmar.Clicked += RealizarPedidoAsync;
+            btnDesconectar.Clicked += Desconectar;
         }
 
         #region Eventos
+
+        /// <summary>
+        /// Cierra la sesión del usuario actual.
+        /// </summary>
+        /// <remarks>
+        /// Cierra la sesión del usuario actual, devolviendolo a la pantalla de login.
+        /// </remarks>
+        /// <param name="sender">Objeto que desencadena el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
+        private void Desconectar(object sender, EventArgs e)
+        {
+            viewModel.Desconectar();
+        }
 
         /// <summary>
         /// Realiza el pedido de los productos seleccionados.
@@ -40,7 +54,7 @@ namespace Practica_SQLite_TiendaPC
         /// </remarks>
         /// <param name="sender">Objeto que desencadena el evento.</param>
         /// <param name="e">Argumentos del evento.</param>
-        private void realizarPedidoAsync(object sender, EventArgs e)
+        private void RealizarPedidoAsync(object sender, EventArgs e)
         {
             viewModel.RealizarPedido(this);
         }
@@ -53,7 +67,7 @@ namespace Practica_SQLite_TiendaPC
         /// </remarks>
         /// <param name="sender">Objeto que desencadena el evento.</param>
         /// <param name="e">Argumentos del evento.</param>
-        private void comprobarComponentes(object sender, EventArgs e)
+        private void ComprobarComponentes(object sender, EventArgs e)
         {
             viewModel.ComprobarComponentes();
         }
@@ -67,7 +81,7 @@ namespace Practica_SQLite_TiendaPC
         /// </remarks>
         /// <param name="sender">Objeto que desencadena el evento.</param>
         /// <param name="e">Argumentos del evento.</param>
-        private void agregarComponentes(object sender, EventArgs e)
+        private void AgregarComponentes(object sender, EventArgs e)
         {
             viewModel.AgregarComponentes();
         }
