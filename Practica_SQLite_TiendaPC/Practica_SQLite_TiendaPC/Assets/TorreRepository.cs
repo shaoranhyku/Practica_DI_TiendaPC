@@ -29,6 +29,42 @@ namespace Practica_SQLite_TiendaPC.Assets
         }
 
         /// <summary>
+        /// Agrega una torre a la base de datos
+        /// </summary>
+        /// <remarks>
+        /// Permite agregar una torre a la base de datos.
+        /// </remarks>
+        /// <param name="torre">Torre que queremos añadir</param>
+        /// <returns>Tarea de añadir una torre</returns>
+        public async Task AgregarTorre(Torre torre)
+        {
+            int result = 0;
+            try
+            {
+                result = await conn.InsertAsync(torre);
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Borra los registros de la tabla.
+        /// </summary>
+        /// <remarks>
+        /// Borra la tabla de la base de datos y la vuelve a crear.
+        /// </remarks>
+        /// <returns>Tarea de borrar la tabla</returns>
+        public void BorrarTabla()
+        {
+
+            conn.DropTableAsync<Torre>().Wait();
+            conn.CreateTableAsync<Torre>().Wait();
+
+        }
+
+        /// <summary>
         /// Permite obtener una lista con todas las torres de la base de datos.
         /// </summary>
         /// <remarks>
@@ -38,7 +74,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de torres de la base de datos.
         /// </returns>
-        public async Task<List<Torre>> GetAllTorreAsync()
+        public async Task<List<Torre>> ObtenerTorres()
         {
             List<Torre> listaTorres;
             try

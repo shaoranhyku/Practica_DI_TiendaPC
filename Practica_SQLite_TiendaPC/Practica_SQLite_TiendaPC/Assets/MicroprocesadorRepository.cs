@@ -29,6 +29,42 @@ namespace Practica_SQLite_TiendaPC.Assets
         }
 
         /// <summary>
+        /// Agrega un microprocesador a la base de datos
+        /// </summary>
+        /// <remarks>
+        /// Permite agregar un microprocesador a la base de datos.
+        /// </remarks>
+        /// <param name="procesador">Microprocesador que queremos añadir</param>
+        /// <returns>Tarea de añadir una microprocesador</returns>
+        public async Task AgregarMicroprocesador(Microprocesador procesador)
+        {
+            int result = 0;
+            try
+            {
+                result = await conn.InsertAsync(procesador);
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Borra los registros de la tabla.
+        /// </summary>
+        /// <remarks>
+        /// Borra la tabla de la base de datos y la vuelve a crear.
+        /// </remarks>
+        /// <returns>Tarea de borrar la tabla</returns>
+        public void BorrarTabla()
+        {
+
+            conn.DropTableAsync<Microprocesador>().Wait();
+            conn.CreateTableAsync<Microprocesador>().Wait();
+
+        }
+
+        /// <summary>
         /// Permite obtener una lista con todos los microprocesadores de la base de datos.
         /// </summary>
         /// <remarks>
@@ -38,7 +74,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de microprocesadores de la base de datos.
         /// </returns>
-        public async Task<List<Microprocesador>> GetAllMicroprocesadorAsync()
+        public async Task<List<Microprocesador>> ObtenerMicroprocesadores()
         {
             List<Microprocesador> listaMicroprocesadores;
             try

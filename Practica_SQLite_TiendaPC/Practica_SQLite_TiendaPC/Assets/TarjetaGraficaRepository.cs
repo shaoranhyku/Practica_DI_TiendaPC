@@ -27,6 +27,42 @@ namespace Practica_SQLite_TiendaPC.Assets
         }
 
         /// <summary>
+        /// Agrega una tarjeta grafica a la base de datos
+        /// </summary>
+        /// <remarks>
+        /// Permite agregar una tarjeta grafica a la base de datos.
+        /// </remarks>
+        /// <param name="tarjetaGrafica">Tarjeta Grafica que queremos añadir</param>
+        /// <returns>Tarea de añadir una microprocesador</returns>
+        public async Task AgregarTarjetaGrafica(TarjetaGrafica tarjetaGrafica)
+        {
+            int result = 0;
+            try
+            {
+                result = await conn.InsertAsync(tarjetaGrafica);
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Borra los registros de la tabla.
+        /// </summary>
+        /// <remarks>
+        /// Borra la tabla de la base de datos y la vuelve a crear.
+        /// </remarks>
+        /// <returns>Tarea de borrar la tabla</returns>
+        public void BorrarTabla()
+        {
+
+            conn.DropTableAsync<TarjetaGrafica>().Wait();
+            conn.CreateTableAsync<TarjetaGrafica>().Wait();
+
+        }
+
+        /// <summary>
         /// Permite obtener una lista con todas las tarjetas graficas de la base de datos.
         /// </summary>
         /// <remarks>
@@ -36,7 +72,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de tarjetas graficas de la base de datos.
         /// </returns>
-        public async Task<List<TarjetaGrafica>> GetAllTarjetaGraficaAsync()
+        public async Task<List<TarjetaGrafica>> ObtenerTarjetasGraficas()
         {
             List<TarjetaGrafica> listaTarjetasGraficas;
             try

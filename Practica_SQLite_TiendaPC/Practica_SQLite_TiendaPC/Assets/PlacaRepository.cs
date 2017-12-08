@@ -29,6 +29,42 @@ namespace Practica_SQLite_TiendaPC.Assets
         }
 
         /// <summary>
+        /// Agrega una placa a la base de datos
+        /// </summary>
+        /// <remarks>
+        /// Permite agregar una placa a la base de datos.
+        /// </remarks>
+        /// <param name="placa">Placa que queremos añadir</param>
+        /// <returns>Tarea de añadir una placa</returns>
+        public async Task AgregarPlaca(Placa placa)
+        {
+            int result = 0;
+            try
+            {
+                result = await conn.InsertAsync(placa);
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Borra los registros de la tabla.
+        /// </summary>
+        /// <remarks>
+        /// Borra la tabla de la base de datos y la vuelve a crear.
+        /// </remarks>
+        /// <returns>Tarea de borrar la tabla</returns>
+        public void BorrarTabla()
+        {
+
+            conn.DropTableAsync<Placa>().Wait();
+            conn.CreateTableAsync<Placa>().Wait();
+
+        }
+
+        /// <summary>
         /// Permite obtener una lista con todas las placas de la base de datos.
         /// </summary>
         /// <remarks>
@@ -38,7 +74,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de placas de la base de datos.
         /// </returns>
-        public async Task<List<Placa>> GetAllPlacaAsync()
+        public async Task<List<Placa>> ObtenerPlacas()
         {
             List<Placa> listaPlacas;
             try

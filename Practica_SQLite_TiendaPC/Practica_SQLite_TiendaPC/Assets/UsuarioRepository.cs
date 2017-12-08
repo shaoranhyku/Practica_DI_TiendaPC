@@ -38,7 +38,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de usuarios de la base de datos.
         /// </returns>
-        public async Task<List<Usuario>> GetAllUsuariosAsync()
+        public async Task<List<Usuario>> ObtenerUsuarios()
         {
             List<Usuario> listaUsuarios;
             try

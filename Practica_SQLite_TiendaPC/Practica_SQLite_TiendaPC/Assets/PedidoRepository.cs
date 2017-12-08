@@ -42,7 +42,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <param name="idMemoria">Id de la memoria comprada en el pedido.</param>
         /// <param name="idTarjetaGrafica">Id de la tarjeta grafica comprada en el pedido.</param>
         /// <returns>Tarea de añadir la tupla a la base de datos.</returns>
-        public async Task AddNewPedidoAsync(string idUsuario, string idPlaca, string idMicroprocesador, string idTorre, string idMemoria, string idTarjetaGrafica)
+        public async Task AgregarPedido(string idUsuario, string idPlaca, string idMicroprocesador, string idTorre, string idMemoria, string idTarjetaGrafica)
         {
             int result = 0;
             try
@@ -68,7 +68,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de pedidos de la base de datos.
         /// </returns>
-        public async Task<List<Pedido>> GetAllPedidoAsync()
+        public async Task<List<Pedido>> ObtenerPedidos()
         {
             List<Pedido> listaPedidos;
             try

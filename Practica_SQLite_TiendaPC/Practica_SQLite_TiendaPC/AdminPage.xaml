@@ -8,11 +8,27 @@
                 <Label x:Name="lblBienvenida"
                        Text="{Binding MensajeBienvenida}"/>
                 <Button x:Name="btnPrecios" Text="Precios"/>
-                <Button x:Name="btnDesconectar" Text="Precios"/>
+                <Button x:Name="btnDesconectar" Text="Desconectar"/>
             </StackLayout>
             <StackLayout>
                 <Label x:Name="lblPedidos" Text="Pedidos"/>
-                <ListView x:Name="lstPedidos" ItemsSource="{Binding ListaPedidos}"/>
+                <ListView x:Name="lstPedidos" ItemsSource="{Binding ListaPedidos}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding NombreUsuario}"/>
+                                    <Label Text="{Binding NombrePlaca}"/>
+                                    <Label Text="{Binding NombreMicroprocesador}"/>
+                                    <Label Text="{Binding NombreTorre}"/>
+                                    <Label Text="{Binding NombreMemoria}"/>
+                                    <Label Text="{Binding NombreTarjetaGrafica}"/>
+                                    <Label Text="{Binding PrecioPedido}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -29,6 +29,42 @@ namespace Practica_SQLite_TiendaPC.Assets
         }
 
         /// <summary>
+        /// Agrega una memoria a la base de datos
+        /// </summary>
+        /// <remarks>
+        /// Permite agregar una memoria a la base de datos.
+        /// </remarks>
+        /// <param name="memoria">Memoria que queremos añadir</param>
+        /// <returns>Tarea de añadir una memoria</returns>
+        public async Task AgregarMemoria(Memoria memoria)
+        {
+            int result = 0;
+            try
+            {
+                result = await conn.InsertAsync(memoria);
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Borra los registros de la tabla.
+        /// </summary>
+        /// <remarks>
+        /// Borra la tabla de la base de datos y la vuelve a crear.
+        /// </remarks>
+        /// <returns>Tarea de borrar la tabla</returns>
+        public void BorrarTabla()
+        {
+
+            conn.DropTableAsync<Memoria>().Wait();
+            conn.CreateTableAsync<Memoria>().Wait();
+
+        }
+
+        /// <summary>
         /// Permite obtener una lista con todas las memorias de la base de datos.
         /// </summary>
         /// <remarks>
@@ -38,7 +74,7 @@ namespace Practica_SQLite_TiendaPC.Assets
         /// <returns>
         /// Lista de memorias de la base de datos.
         /// </returns>
-        public async Task<List<Memoria>> GetAllMemoriaAsync()
+        public async Task<List<Memoria>> ObtenerMemorias()
         {
             List<Memoria> listaMemorias;
             try

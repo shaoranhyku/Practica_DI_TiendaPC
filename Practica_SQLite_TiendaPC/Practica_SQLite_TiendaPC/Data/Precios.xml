@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Precios>
+	<Placas>
+	  <Placa>
+      <ID>1</ID>
+      <NOMBRE>Prueba Cambio de Nombre</NOMBRE>
+      <PRECIO>90</PRECIO>
+	  </Placa>
+    <Placa>
+      <ID>2</ID>
+      <NOMBRE>MSI Z270 Gaming Plus</NOMBRE>
+      <PRECIO>119</PRECIO>
+    </Placa>
+	</Placas>
+	<Procesadores>
+	  <Procesador>
+      <ID>1</ID>
+      <NOMBRE>Intel Core I7-7700K 4.2GHz BOX</NOMBRE>
+      <PRECIO>299</PRECIO>
+	  </Procesador>
+    <Procesador>
+      <ID>2</ID>
+      <NOMBRE>Intel i5-6600K 3.5Ghz</NOMBRE>
+      <PRECIO>219</PRECIO>
+    </Procesador>
+	</Procesadores>
+	<Torres>
+	  <Torre>
+      <ID>1</ID>
+      <NOMBRE>Thermaltake View 71 USB 3.0 Cristal Templado RGB</NOMBRE>
+      <PRECIO>199</PRECIO>
+	  </Torre>
+    <Torre>
+      <ID>2</ID>
+      <NOMBRE>Owlotech EVO USB 3.0 500W</NOMBRE>
+      <PRECIO>39,95</PRECIO>
+    </Torre>
+  </Torres>
+	<Memorias>
+	  <Memoria>
+      <ID>1</ID>
+      <NOMBRE>G.Skill Ripjaws V Red DDR4 3000 PC4-24000 16GB 2x8GB CL15</NOMBRE>
+      <PRECIO>210</PRECIO>
+	  </Memoria>
+    <Memoria>
+      <ID>2</ID>
+      <NOMBRE>Kingston ValueRAM SO-DIMM DDR3L 1600 PC3-12800 4GB CL11</NOMBRE>
+      <PRECIO>33,95</PRECIO>
+    </Memoria>
+	</Memorias>
+	<Graficas>
+	  <Grafica>
+      <ID>1</ID>
+      <NOMBRE>Zotac GeForce GTX 1080Ti AMP! Edition 11GB GDDR5X</NOMBRE>
+      <PRECIO>749</PRECIO>
+	  </Grafica>
+    <Grafica>
+      <ID>2</ID>
+      <NOMBRE>Sapphire Nitro+ Radeon RX 580 8GB GDDR5</NOMBRE>
+      <PRECIO>309</PRECIO>
+    </Grafica>
+	</Graficas>
+</Precios>

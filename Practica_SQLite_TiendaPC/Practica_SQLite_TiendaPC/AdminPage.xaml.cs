@@ -30,7 +30,7 @@ namespace Practica_SQLite_TiendaPC
 
         private void ActualizarPrecios(object sender, EventArgs e)
         {
-            viewModel.ActualizarPrecios();
+            viewModel.ActualizarPrecios(this);
         }
 
         private void Desconectar(object sender, EventArgs e)

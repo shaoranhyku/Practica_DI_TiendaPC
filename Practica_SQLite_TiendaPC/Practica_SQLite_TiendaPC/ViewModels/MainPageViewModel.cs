@@ -106,7 +106,7 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         {
             if (ComprobarCamposLogin())
             {
-                List<Usuario> usuarios = new List<Usuario>(await App.UsuarioRepo.GetAllUsuariosAsync());
+                List<Usuario> usuarios = new List<Usuario>(await App.UsuarioRepo.ObtenerUsuarios());
 
                 Usuario usuarioResultado = usuarios.SingleOrDefault(t => t.CodUsuario == NombreUsuario && t.Contra == ContraUsuario);
 
@@ -120,9 +120,9 @@ namespace Practica_SQLite_TiendaPC.ViewModels
                     {
                         App.Current.MainPage = new UserPage(usuarioResultado);
                     }
-                    else if (usuarioResultado.Tipo == "administrador")
+                    else if (usuarioResultado.Tipo == "admin")
                     {
-                        //TODO: Lanzar pantalla administrador para ver pedidos
+                        App.Current.MainPage = new AdminPage(usuarioResultado);
                     }
                 }
             }

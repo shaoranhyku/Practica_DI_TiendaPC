@@ -413,7 +413,7 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         /// </remarks>
         public async void RealizarPedido(Page actualPage)
         {
-            await App.PedidoRepo.AddNewPedidoAsync(usuario.CodUsuario,
+            await App.PedidoRepo.AgregarPedido(usuario.CodUsuario,
                 ListaPlaca.ElementAt(IndicePlaca).Id,
                 ListaProcesador.ElementAt(IndiceProcesador).Id,
                 ListaTorre.ElementAt(IndiceTorre).Id,
@@ -432,11 +432,11 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         public async void InicializarValores()
         {
             MensajeBienvenida = String.Format("Bienvenido {0}", usuario.Nombre);
-            ListaPlaca = new List<Placa>(await App.PlacaRepo.GetAllPlacaAsync());
-            ListaProcesador = new List<Microprocesador>(await App.MicroRepo.GetAllMicroprocesadorAsync());
-            ListaTorre = new List<Torre>(await App.TorreRepo.GetAllTorreAsync());
-            ListaMemoria = new List<Memoria>(await App.MemoriaRepo.GetAllMemoriaAsync());
-            ListaTarjetaGrafica = new List<TarjetaGrafica>(await App.GraficaRepo.GetAllTarjetaGraficaAsync());
+            ListaPlaca = new List<Placa>(await App.PlacaRepo.ObtenerPlacas());
+            ListaProcesador = new List<Microprocesador>(await App.MicroRepo.ObtenerMicroprocesadores());
+            ListaTorre = new List<Torre>(await App.TorreRepo.ObtenerTorres());
+            ListaMemoria = new List<Memoria>(await App.MemoriaRepo.ObtenerMemorias());
+            ListaTarjetaGrafica = new List<TarjetaGrafica>(await App.GraficaRepo.ObtenerTarjetasGraficas());
             IndicePlaca = -1;
             IndiceProcesador = -1;
             IndiceTorre = -1;
