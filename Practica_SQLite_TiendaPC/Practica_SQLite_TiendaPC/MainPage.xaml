@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Practica_SQLite_TiendaPC"
              x:Class="Practica_SQLite_TiendaPC.MainPage">
-    <StackLayout>
+    <StackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand">
         <Label 
             x:Name="lblNombreUsuario"
-            Text="Usuario"
-            HorizontalOptions="Start" />
+            Text="Usuario"/>
         <Entry
             Text="{Binding NombreUsuario, Mode=OneWayToSource}" 
             x:Name="txtNombreUsuario"
             Placeholder="Introduce el usuario"/>
         <Label
             x:Name="lblContraUsuario"
-            Text="Contraseña"
-            HorizontalOptions="Start" />
+            Text="Contraseña"/>
         <Entry
             Text="{Binding ContraUsuario, Mode=OneWayToSource}" 
             IsPassword="True"
@@ -27,8 +27,7 @@
         <Label 
             x:Name="lblError"
             TextColor="Red"
-            Text="{Binding MensajeError}" 
-            HorizontalOptions="Start" />
+            Text="{Binding MensajeError}"/>
     </StackLayout>
 
 </ContentPage>

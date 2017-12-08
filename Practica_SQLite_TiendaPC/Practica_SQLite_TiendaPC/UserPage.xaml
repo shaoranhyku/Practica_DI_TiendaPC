@@ -3,8 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica_SQLite_TiendaPC.UserPage">
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.Column="0">
                 <Label x:Name="lblPlaca" Text="Placa base"/>
                 <Picker x:Name="pckPlaca"
                         ItemsSource="{Binding ListaPlaca}"
@@ -27,7 +34,7 @@
                         SelectedIndex="{Binding IndiceTarjetaGrafica}"/>
                 <Button x:Name="btnDesconectar" Text="Desconectar"/>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Grid.Row="0" Grid.Column="1">
                 <Label x:Name="lblBienvenida"
                        Text="{Binding MensajeBienvenida}"/>
                 <Button x:Name="btnAceptar" Text="Aceptar"
@@ -52,6 +59,6 @@
                 <Button x:Name="btnConfirmar" Text="Confirmar"
                         IsEnabled="{Binding EstadoConfirmar}"/>
             </StackLayout>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
