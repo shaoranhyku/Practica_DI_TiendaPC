@@ -372,10 +372,12 @@ namespace Practica_SQLite_TiendaPC.ViewModels
                 IndiceTarjetaGrafica != -1)
             {
                 EstadoAceptar = true;
+                EstadoConfirmar = true;
             }
             else
             {
                 EstadoAceptar = false;
+                EstadoConfirmar = false;
             }
         }
         /// <summary>
@@ -396,7 +398,6 @@ namespace Practica_SQLite_TiendaPC.ViewModels
             componentes.Add(ListaTarjetaGrafica.ElementAt(IndiceTarjetaGrafica));
 
             PedidoActual = componentes;
-            EstadoConfirmar = true;
 
             PrecioTotal = ListaPlaca.ElementAt(IndicePlaca).Precio +
             ListaProcesador.ElementAt(IndiceProcesador).Precio +

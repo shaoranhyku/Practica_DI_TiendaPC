@@ -14,19 +14,24 @@ namespace Practica_SQLite_TiendaPC.ViewModels
 {
     class AdminPageViewModel : INotifyPropertyChanged
     {
+        #region Campos
         //Mensaje de bienvenida
         private String mensajeBienvenida;
         //Usuario actual
         private Usuario usuario;
         //Lista de pedidos
         private List<ListaPedidoItem> listaPedidos;
+        #endregion
 
+        #region Constructor
         public AdminPageViewModel(Usuario usuario)
         {
             this.usuario = usuario;
             InicializarValores();
         }
+        #endregion
 
+        #region Propiedades
         /// <summary>
         /// Mensaje de bienvenida.
         /// </summary>
@@ -64,6 +69,7 @@ namespace Practica_SQLite_TiendaPC.ViewModels
                 }
             }
         }
+#endregion
 
         #region Elementos Interfaz INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,6 +83,7 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         }
         #endregion
 
+        #region Métodos
         /// <summary>
         /// Cierra la sesión del usuario actual.
         /// </summary>
@@ -238,6 +245,8 @@ namespace Practica_SQLite_TiendaPC.ViewModels
             App.Current.MainPage = new AdminPage(usuario);
 
         }
+
+#endregion
 
     }
 }

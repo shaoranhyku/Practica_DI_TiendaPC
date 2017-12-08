@@ -10,14 +10,15 @@
             x:Name="lblNombreUsuario"
             Text="Usuario"/>
         <Entry
-            Text="{Binding NombreUsuario, Mode=OneWayToSource}" 
+            Text="{Binding NombreUsuario, Mode=TwoWay}" 
             x:Name="txtNombreUsuario"
-            Placeholder="Introduce el usuario"/>
+            Placeholder="Introduce el usuario"
+            />
         <Label
             x:Name="lblContraUsuario"
             Text="Contraseña"/>
         <Entry
-            Text="{Binding ContraUsuario, Mode=OneWayToSource}" 
+            Text="{Binding ContraUsuario, Mode=TwoWay}" 
             IsPassword="True"
             x:Name="txtContraUsuario"
             Placeholder="Introduce el usuario"/>

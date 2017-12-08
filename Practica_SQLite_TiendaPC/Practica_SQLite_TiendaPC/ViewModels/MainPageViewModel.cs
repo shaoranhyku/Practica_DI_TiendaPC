@@ -34,7 +34,10 @@ namespace Practica_SQLite_TiendaPC.ViewModels
             {
                 if (nombreUsuario != value)
                 {
-                    nombreUsuario = value;
+                    if(value != null && value.Length <=4)
+                    {
+                        nombreUsuario = value;
+                    }
                     OnPropertyChanged("NombreUsuario");
                 }
             }
@@ -52,7 +55,10 @@ namespace Practica_SQLite_TiendaPC.ViewModels
             {
                 if (contraUsuario != value)
                 {
-                    contraUsuario = value;
+                    if (value != null && value.Length <= 10)
+                    {
+                        contraUsuario = value;
+                    }
                     OnPropertyChanged("ContraUsuario");
                 }
             }
@@ -108,22 +114,23 @@ namespace Practica_SQLite_TiendaPC.ViewModels
             {
                 List<Usuario> usuarios = new List<Usuario>(await App.UsuarioRepo.ObtenerUsuarios());
 
-                Usuario usuarioResultado = usuarios.SingleOrDefault(t => t.CodUsuario == NombreUsuario && t.Contra == ContraUsuario);
+                Usuario usuarioResultado = usuarios.SingleOrDefault(t => t.CodUsuario == NombreUsuario);
 
                 if (usuarioResultado == null)
                 {
-                    MensajeError = "Usuario o contraseña incorrecta.";
+                    MensajeError = "El usuario no existe.";
                 }
-                else
+                else if(usuarioResultado.Contra != contraUsuario)
                 {
-                    if (usuarioResultado.Tipo == "usuario")
-                    {
-                        App.Current.MainPage = new UserPage(usuarioResultado);
-                    }
-                    else if (usuarioResultado.Tipo == "admin")
-                    {
-                        App.Current.MainPage = new AdminPage(usuarioResultado);
-                    }
+                    MensajeError = "Contraseña incorrecta.";
+                }
+                else if (usuarioResultado.Tipo == "usuario")
+                {
+                    App.Current.MainPage = new UserPage(usuarioResultado);
+                }
+                else if (usuarioResultado.Tipo == "admin")
+                {
+                    App.Current.MainPage = new AdminPage(usuarioResultado);
                 }
             }
         }
@@ -142,9 +149,19 @@ namespace Practica_SQLite_TiendaPC.ViewModels
         private bool ComprobarCamposLogin()
         {
             bool esCorrecto = true;
-            if (String.IsNullOrEmpty(NombreUsuario) || String.IsNullOrEmpty(ContraUsuario))
+            if (String.IsNullOrEmpty(NombreUsuario) && String.IsNullOrEmpty(ContraUsuario))
             {
-                MensajeError = "Los campos no pueden estar vacios.";
+                MensajeError = "Debe introducir codigo de usuario y contraseña.";
+                esCorrecto = false;
+            }
+            else if (String.IsNullOrEmpty(NombreUsuario))
+            {
+                MensajeError = "Debe introducir codigo de usuario.";
+                esCorrecto = false;
+            }
+            else if (String.IsNullOrEmpty(ContraUsuario))
+            {
+                MensajeError = "Debe introducir contraseña.";
                 esCorrecto = false;
             }
             else
